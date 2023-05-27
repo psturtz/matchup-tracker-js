@@ -20,35 +20,35 @@ const RootLayout = ({children}) => {
           <main className="app">
             <Nav />
             {children}
+            <footer className="w-full h-6 flex justify-center mt-36">
+              <div className="text-primary-grey text-sm px-6 text-center">
+                Created By Paul Sturtz{' | '}
+                <a
+                  target="_blank"
+                  href="https://github.com/psturtz"
+                  className="underline hover:text-primary-white"
+                >
+                  Github
+                </a>
+                {' | '}
+                <a
+                  target="_blank"
+                  href="https://www.linkedin.com/in/paulsturtz/"
+                  className="underline hover:text-primary-white"
+                >
+                  LinkedIn
+                </a>
+                {' | '}
+                <a
+                  target="_blank"
+                  href="https://www.termsfeed.com/live/f84ea026-71cd-4e28-a671-eaf88a49393a"
+                  className="underline hover:text-primary-white"
+                >
+                  Fair Use Disclaimer
+                </a>
+              </div>
+            </footer>
           </main>
-          <footer className="z-50 w-full h-6 flex justify-center absolute">
-            <div className="text-primary-grey text-sm px-6 text-center">
-              Created By Paul Sturtz{' | '}
-              <a
-                target="_blank"
-                href="https://github.com/psturtz"
-                className="underline hover:text-primary-white"
-              >
-                Github
-              </a>
-              {' | '}
-              <a
-                target="_blank"
-                href="https://www.linkedin.com/in/paulsturtz/"
-                className="underline hover:text-primary-white"
-              >
-                LinkedIn
-              </a>
-              {' | '}
-              <a
-                target="_blank"
-                href="https://www.termsfeed.com/live/f84ea026-71cd-4e28-a671-eaf88a49393a"
-                className="underline hover:text-primary-white"
-              >
-                Fair Use Disclaimer
-              </a>
-            </div>
-          </footer>
         </Provider>
       </body>
     </html>
