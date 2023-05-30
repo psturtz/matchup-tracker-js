@@ -21,7 +21,7 @@ const Nav = () => {
 
   return (
     <nav className={`${session?.user ? 'flex-between lg:mb-16': ''} w-full mb-8 pt-3`}>
-      <Link href="/" className="flex gap-2 flex-center">
+      <Link href="/" className={`${session?.user ? 'flex flex-center' : 'hidden'} gap-2`}>
         <Image
           src="undraw_home_run.svg"
           alt="Logo"
@@ -58,19 +58,27 @@ const Nav = () => {
           </div>
         ) : (
           <>
-            <div className="flex flex-col items-center text-center pt-8">
-            <p className="head_text green_gradient pb-4">Sign In With</p>
-              {providers && Object.values(providers).map((provider) => (
-                <button type="button" key={provider.name} onClick={() => signIn(provider.id)}
-                  className="black_btn">
-                  <Image 
-                    src='google.svg'
-                    alt='Google'
-                    height={40}
-                    width={100}
-                  />
-                </button>
-                
+            
+            <div className="flex flex-col items-center text-center pt-4">
+              <h1 className="head_text text-center blue_gradient py-4">
+                Baseball <br className="max-md:hidden" />
+                <span className="text-center ">Statistics</span>
+              </h1>
+              <p className=" text-base text-center font-medium text-primary-teal mt-4 px-8 py-4 sm:py-2 max-w-lg">
+                Check lifetime matchup statistics between every player on a Major
+                League roster!
+              </p>
+                {providers && Object.values(providers).map((provider) => (
+                  <button type="button" key={provider.name} onClick={() => signIn(provider.id)}
+                    className="rounded-lg border border-primary-white bg-primary-white mt-8 py-1.5 px-5 w-1/2 text-primary-black transition-all hover:bg-primary-white hover:text-primary-black text-center text-sm flex items-center justify-center">
+                    <Image
+                      src='google.svg'
+                      alt='Google'
+                      height={40}
+                      width={40}
+                    />
+                    <p className="px-2">Sign Up With Google</p>
+                  </button>
               ))}
             </div>
           </>
@@ -118,18 +126,27 @@ const Nav = () => {
           </div>
         ) : (
           <>
-            <div className="flex flex-col items-center text-center pt-8">
-            <p className="head_text green_gradient pb-4">Sign In With</p>
-            {providers && Object.values(providers).map((provider) => (
-              <button type="button" key={provider.name} onClick={() => signIn(provider.id)}
-                className="black_btn">
-                <Image
-                  src='google.svg'
-                  alt='Google'
-                  height={40}
-                  width={100}
-                />
-              </button>
+            
+            <div className="flex flex-col items-center text-center pt-4">
+              <h1 className="head_text text-center blue_gradient py-4">
+                Baseball <br className="max-md:hidden" />
+                <span className="text-center ">Statistics</span>
+              </h1>
+              <p className=" text-base text-center font-medium text-primary-teal px-8 py-4 sm:py-2 max-w-lg">
+                Check lifetime matchup statistics between every player on a Major
+                League roster!
+              </p>
+              {providers && Object.values(providers).map((provider) => (
+                <button type="button" key={provider.name} onClick={() => signIn(provider.id)}
+                  className="rounded-lg border border-primary-white bg-primary-white py-1.5 px-5 mt-8 text-primary-black transition-all hover:bg-primary-white hover:text-primary-black text-center text-sm flex items-center justify-center">
+                  <Image
+                    src='google.svg'
+                    alt='Google'
+                    height={40}
+                    width={40}
+                  />
+                  <p className="px-2">Sign Up With Google</p>
+                </button>
             ))}
             </div>
           </>

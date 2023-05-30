@@ -92,8 +92,8 @@ export default function Dropdown({type, selected, setSelected, data, other}) {
               }) : roster ? roster.map((player) => {
                 return (
                   <>
-                    {(other.position === 'P' && player.position === 'P') ? <> </>
-                    : player.position !== 'P' && (other.position !== 'P' && other.position !== 'Default') ? <></> : (
+                    {(other.position === 'P' && player.position === 'P' && selected.position === 'Default') ? <> </>
+                    : player.position !== 'P' && (other.position !== 'P' && other.position !== 'Default') && selected.position === 'Default' ? <></> : (
                       <Listbox.Option key={player.name} className={({ active }) =>
                         `relative cursor-default select-none py-2 md:max-lg:pl-4 pl-6 pr-4 flex items-center -z-20 justify-between ${active ? 'bg-primary-teal text-primary-white' : 'text-gray-900'
                         }`
@@ -108,11 +108,11 @@ export default function Dropdown({type, selected, setSelected, data, other}) {
                             >
                               <Image
                                 src={player.image}
-                                alt=""
+                                alt="N/A"
                                 width={400}
                                 height={400}
                                 quality={100}
-                                  className='mr-2 w-1/6'
+                                className='mr-2 w-1/6'
                               /> {player.name} ({player.position}) #{player.number}
                             </span>
                             {selected ? (

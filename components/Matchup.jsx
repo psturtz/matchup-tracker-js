@@ -7,13 +7,24 @@ const Matchup = () => {
   const [ firstPlayer, setFirstPlayer ] = useState({name: "Select a player", image: "/baseball-outline.svg", position: 'Default'});
   const [secondPlayer, setSecondPlayer] = useState({ name: "Select a player", image: "/baseball-outline.svg", position: 'Default' });
   const [ stats, setStats ] = useState({});
-
+  
+  useEffect(() => {
+    if ((firstPlayer.position === 'P' && secondPlayer.position === 'P') || (firstPlayer.position !== 'P' && firstPlayer.position !== 'Default' && secondPlayer.position !== 'P' && secondPlayer.position !== 'Default')) {
+      setSecondPlayer({ name: "Select a player", image: "/baseball-outline.svg", position: 'Default' })
+    }
+  }, [firstPlayer]);
+  
+  useEffect(() => {
+    if ((firstPlayer.position === 'P' && secondPlayer.position === 'P') || (firstPlayer.position !== 'P' && firstPlayer.position !== 'Default' && secondPlayer.position !== 'P' && secondPlayer.position !== 'Default')) {
+      setFirstPlayer({ name: "Select a player", image: "/baseball-outline.svg", position: 'Default' })
+    }
+  }, [secondPlayer])
 
   useEffect(() => {
   if (firstPlayer.position !== 'Default' && secondPlayer.position !== 'Default') {
     if (firstPlayer.position === 'P') {
       (async () => {
-        const response = await fetch(`/api/stats/${secondPlayer.id}/${firstPlayer.id}`)
+        const response = await fetch(`/api/stats/${secondPlayer.id}/${firstPlayer.id}`, {next: {cache: 'no-store'}})
         const data = await response.json();
 
         console.log(data);
@@ -21,7 +32,7 @@ const Matchup = () => {
       })();
     } else {
       (async () => {
-        const response = await fetch(`/api/stats/${firstPlayer.id}/${secondPlayer.id}`)
+        const response = await fetch(`/api/stats/${firstPlayer.id}/${secondPlayer.id}`, { next: { cache: 'no-store' } })
         const data = await response.json();
 
         console.log(data);
