@@ -4,7 +4,7 @@ import category from "@utils/alias";
 
 const Display = ({stats}) => {
   const { data: session} = useSession();
-  console.log(session)
+  //console.log(session)
   
   return (
     <section className="order-last flex-initial md:order-none w-full md:w-3/6 border border-primary-black bg-primary-black rounded-md mx-2 lg:mx-4 md:px-10 py-8 px-6 shadow-md">
