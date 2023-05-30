@@ -30,14 +30,13 @@ const Settings = ({}) => {
       console.log('Successfully updated settings');
       location.assign('/');
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
   }
 
   return (
     <div className="w-full text-center flex flex-col justify-start items-center pb-12">
       <span className=" text-5xl pb-2 blue_gradient font-semibold">Settings</span>
-      {console.log(session, settings)}
       <p className="mt-4 text-base">Select the statistics you want to see!</p>
       <section className="w-full md:w-4/5 lg:w-3/5 flex flex-col space-y-2 items-baseline mt-8">
         {settings &&
