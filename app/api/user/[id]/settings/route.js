@@ -1,7 +1,7 @@
 import { connectToDB } from '@utils/database';
 import User from '@models/user';
 
-export const PATCH = async (req, { params }) => {
+export const PUT = async (req, { params }) => {
   const { id } = params;
   const updatedSettings = await req.json();
   try {

@@ -24,7 +24,7 @@ const Settings = ({}) => {
   const handleClick = async () => {
     try {
       await fetch(`/api/user/${session?.user.id}/settings`, {
-        method: 'PATCH',
+        method: 'PUT',
         body: JSON.stringify(settings)
       })
       console.log('Successfully updated settings');
@@ -36,9 +36,9 @@ const Settings = ({}) => {
 
   return (
     <div className="w-full text-center flex flex-col justify-start items-center pb-12">
-      <span className=" text-3xl blue_gradient">Settings</span>
+      <span className=" text-5xl pb-2 blue_gradient font-semibold">Settings</span>
       {console.log(session, settings)}
-      <p className="mt-4 text-xs">Select the statistics you want to see!</p>
+      <p className="mt-4 text-base">Select the statistics you want to see!</p>
       <section className="w-full md:w-4/5 lg:w-3/5 flex flex-col space-y-2 items-baseline mt-8">
         {settings &&
           Object.keys(settings.stats).map((el) => {
@@ -63,7 +63,7 @@ const Settings = ({}) => {
                     }))
                   }
                   className={`${
-                    settings.stats[el] ? 'bg-teal-900' : 'bg-teal-700'
+                    settings.stats[el] ? 'bg-teal-700' : 'bg-teal-900'
                   }
             relative inline-flex h-[38px] w-[74px] shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus-visible:ring-2  focus-visible:ring-white focus-visible:ring-opacity-75`}
                 >

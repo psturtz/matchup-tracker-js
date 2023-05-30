@@ -28,7 +28,7 @@ const SelectPlayer = ({player, setPlayer, otherPosition}) => {
           <>
             Throws {player.throws} <br/>
               <a className="underline pt-2 hover:text-primary-white" href={`https://www.baseball-reference.com/search/search.fcgi?hint=&search=${player.firstName}+${player.lastName}&pid=&idx=`} target="_blank">
-                {player.name + "'"}s Career Statistics
+                {player.name} Career Statistics
               </a>
         </>)
         : player.position !== 'Default' && player.position !== 'P' &&
