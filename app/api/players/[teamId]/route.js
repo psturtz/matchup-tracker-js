@@ -8,7 +8,7 @@ export const GET = async (request, { params }) => {
       pitchers: [],
       positionPlayers: [],
     }
-    const response = await fetch(`https://statsapi.mlb.com/api/v1/teams/${teamId}/roster`);
+    const response = await fetch(`https://statsapi.mlb.com/api/v1/teams/${teamId}/roster`, { next: { revalidate: 86400 }});
     const data = await response.json();
     data.roster.forEach(el => {
       const player = {
@@ -23,7 +23,7 @@ export const GET = async (request, { params }) => {
       else players.positionPlayers.push(player)
     });
     const espnResponse = await fetch(
-      `http://site.api.espn.com/apis/site/v2/sports/baseball/mlb/teams/${teams[teamId].espnId}/roster`
+      `http://site.api.espn.com/apis/site/v2/sports/baseball/mlb/teams/${teams[teamId].espnId}/roster`, { next: { revalidate: 86400 }}
     );
     const espnData = await espnResponse.json();
     for (const section in players) {

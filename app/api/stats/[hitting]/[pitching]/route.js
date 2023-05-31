@@ -1,7 +1,8 @@
 export const GET = async (req, {params}) => {
   const { hitting, pitching } = params;
   const response = await fetch(
-    `https://statsapi.mlb.com/api/v1/people/${hitting}?hydrate=stats(group=[hitting],type=[vsPlayer],opposingPlayerId=${pitching},season=[2023],sportId=1)`
+    `https://statsapi.mlb.com/api/v1/people/${hitting}?hydrate=stats(group=[hitting],type=[vsPlayer],opposingPlayerId=${pitching},season=[2023],sportId=1)`,
+    { next: { revalidate: 300 } }
   );
   const data = await response.json();
   const stats = data.people[0].stats.find((el) => el.type.displayName == 'vsPlayerTotal').splits[0]?.stat ? data.people[0].stats.find((el) => el.type.displayName == 'vsPlayerTotal').splits[0]?.stat : {
@@ -37,5 +38,3 @@ export const GET = async (req, {params}) => {
     };
   return new Response(JSON.stringify(stats), { status: 200 });
 }
-
-//`https://statsapi.mlb.com/api/v1/people/${homePlayer}?hydrate=stats(group=[hitting],type=[vsPlayer],opposingPlayerId=${oppPlayer},season=[2022],sportId=1)`
