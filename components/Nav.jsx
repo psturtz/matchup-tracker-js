@@ -70,14 +70,14 @@ const Nav = () => {
               </p>
                 {providers && Object.values(providers).map((provider) => (
                   <button type="button" key={provider.name} onClick={() => signIn(provider.id)}
-                    className="rounded-lg border border-primary-white bg-primary-white mt-8 py-1.5 px-5 w-1/2 text-primary-black transition-all hover:bg-primary-white hover:text-primary-black text-center text-sm flex items-center justify-center">
+                    className="rounded-lg border shadow-md border-primary-white bg-primary-white mt-8 py-3 px-5 w-8/12 text-primary-black transition-all hover:bg-primary-white hover:text-primary-black text-center text-sm flex items-center justify-center">
                     <Image
                       src='google.svg'
                       alt='Google'
                       height={40}
                       width={40}
                     />
-                    <p className="px-2">Sign Up With Google</p>
+                    <p className="px-2">Sign Up / Sign In With Google</p>
                   </button>
               ))}
             </div>
@@ -138,14 +138,14 @@ const Nav = () => {
               </p>
               {providers && Object.values(providers).map((provider) => (
                 <button type="button" key={provider.name} onClick={() => signIn(provider.id)}
-                  className="rounded-lg border border-primary-white bg-primary-white py-1.5 px-5 mt-8 text-primary-black transition-all hover:bg-primary-white hover:text-primary-black text-center text-sm flex items-center justify-center">
+                  className="rounded-lg w-100 border shadow-md border-primary-white bg-primary-white py-1.5 px-5 mt-8 text-primary-black transition-all hover:bg-primary-white hover:text-primary-black text-center text-sm flex items-center justify-center">
                   <Image
                     src='google.svg'
                     alt='Google'
                     height={40}
                     width={40}
                   />
-                  <p className="px-2">Sign Up With Google</p>
+                  <p className="px-2">Sign Up / Sign In With Google</p>
                 </button>
             ))}
             </div>
